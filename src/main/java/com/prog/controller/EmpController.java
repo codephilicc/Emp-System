@@ -11,4 +11,9 @@ public class EmpController {
 		return "index";
 	}
 	
+	@GetMapping("/addemp")
+	public String addEmpForm() {
+		return "add_emp";
+	}
+	
 }
