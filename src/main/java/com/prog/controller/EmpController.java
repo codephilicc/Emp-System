@@ -1,5 +1,6 @@
 package com.prog.controller;
 
+import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,24 +17,25 @@ public class EmpController {
 
 	@Autowired
 	private EmpService service;
-	
+
 	@GetMapping("/")
 	public String home() {
+
 		return "index";
 	}
-	
+
 	@GetMapping("/addemp")
 	public String addEmpForm() {
 		return "add_emp";
 	}
-	
+
 	@PostMapping("/register")
-	public String empRegister(@ModelAttribute Employee e,HttpSession session) {
-		
-			System.out.println(e);
-			service.addEmp(e);
-			session.setAttribute("msg","Employee Added Sucessfully.. ");
-		return "redirect:/"; 
+	public String empRegister(@ModelAttribute Employee e, HttpSession session) {
+
+		System.out.println(e);
+		service.addEmp(e);
+		session.setAttribute("msg", "Employee Added Sucessfully.. ");
+		return "redirect:/";
 	}
-	
+
 }
